@@ -11,7 +11,7 @@ body {
   background: #ff1b68;
   width: 100%;
   height: 528px;
-  padding: 10px;
+  padding: 1rem;
 }
 
 .section-title {
@@ -21,6 +21,7 @@ body {
 #product-overview h1 {
   color: white;
   font-family: "Anton", sans-serif;
+  margin: 0;
 }
 
 /* h1 {
@@ -30,14 +31,14 @@ body {
 .main-header {
   width: 100%;
   background-color: #2ddf5c;
-  padding: 10px;
+  padding: 0.6rem 1rem;
 
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.logo-nav > a {
+.logo-nav a {
   color: #0e4f1f;
   text-decoration: none;
   font-weight: bold;
@@ -58,14 +59,43 @@ body {
   list-style: none;
 }
 
-.main-nav__item {
-  /* display: inline-block;
+/* .main-nav__item {
+  display: inline-block;
   display: block;
   display: none;
-  visibility: hidden; */
-}
+  visibility: hidden;
+} */
 
-.main-nav__item > a {
+.main-nav__item a {
   color: #0e4f1f;
   text-decoration: none;
+  padding-bottom: 3px;
+}
+
+/* Pseudo elements */
+/* .main-nav__item a::after/before {
+  content: " (Click)";
+  color: #c7ffd6;
+} */
+
+/* Pseudo classes */
+.main-nav__item a:hover,
+.main-nav__item a:active {
+  color: #fff;
+  border-bottom: 3px solid #fff;
+}
+
+.main-nav__item--cta a {
+  padding: 0.4rem;
+  background-color: #0f9131;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.main-nav__item--cta a:hover,
+.main-nav__item--cta a:active {
+  border: none;
+  color: #0f9131;
+  background-color: white;
 }
