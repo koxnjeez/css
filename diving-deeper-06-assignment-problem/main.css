@@ -1,0 +1,28 @@
+/* .boxes {
+  display: flex;
+} */
+
+.box {
+  display: inline-block;
+  width: fit-content;
+  height: fit-content;
+  padding: 1rem;
+  margin: 2rem 5rem;
+  font-family: "Cormorant Unicase", serif;
+  font-weight: 700;
+  font-size: 30px;
+  background-color: #7109aa;
+  color: white;
+  box-shadow: 0 0 15px #7109aa;
+}
+
+.box:first-of-type {
+  height: 300px;
+  width: 50%;
+  /* visibility: hidden; */
+}
+
+.box:last-of-type:hover {
+  background-color: #a60000;
+  box-shadow: 0 0 15px #a60000;
+}
