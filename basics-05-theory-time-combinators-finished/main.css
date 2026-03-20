@@ -1,0 +1,31 @@
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+#product-overview {
+  background: #ff1b68;
+  margin: 1rem;
+  height: 15rem;
+  box-sizing: border-box; /* размер с учетом padding и border */
+  /* box-sizing: content-box; */ /* чистый размер контента */
+}
+
+.section-title {
+  color: #2ddf5c;
+}
+
+#product-overview h1 {
+  color: white;
+  font-family: "Anton", sans-serif;
+  margin: 2rem;
+}
+
+/* COMBINATORS */
+/* #id + h1 (применяется ко всем h1, которые идут после #id) */
+/* #id ~ h1 (применяется ко всем h1, если на их уровне есть #id) */
+/* #id > h1 (применяется ко всем h1, если это прямой child объекта с #id) */
+/* #id h1 (применяется ко всем h1, если они находится в объекте с #id, не обязательно на 1 уровне) */
+
+/* h1 {
+  font-family: sans-serif;
+} */
