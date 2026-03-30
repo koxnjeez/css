@@ -1,0 +1,80 @@
+.background {
+  background: url("../images/deseer.jpg") #ff1b68 center bottom / cover
+    no-repeat border-box;
+  filter: brightness(0.5);
+  width: 100vw;
+  height: 100vh;
+  position: fixed; /* позиция фиксирована, отступ идет от viewport */
+  top: 0;
+  z-index: -1; /* по стандарту равен 1 */
+}
+
+.plan-box {
+  position: relative; /* создает предка, к которому будет привязываться объект в позиции absolute, отступ идет от изначальной позиии элемента */
+  margin: 1rem 5rem;
+  padding: 2rem;
+  border: 5px solid #0e3c19;
+  width: 80%;
+  font-family: inherit;
+  text-decoration: none;
+}
+
+.plan-box:hover,
+.plan-box:active {
+  border: 5px solid #ff5b49;
+}
+
+.plan-link {
+  text-decoration: none;
+}
+
+#plus {
+  background-color: rgba(206, 248, 215, 0.95);
+  margin-top: 3rem;
+  z-index: 0;
+}
+
+#free {
+  background-color: rgba(231, 248, 235, 0.95);
+  float: right;
+  text-align: right;
+}
+
+#premium {
+  background-color: rgba(25, 71, 40, 0.95);
+}
+
+.clearer {
+  clear: both;
+}
+
+.plan-title {
+  color: black;
+  font-size: 1.75rem;
+}
+
+#premium .plan-title {
+  color: white;
+}
+
+.plan-badge {
+  font-size: 1.2rem;
+  color: white;
+  background-color: #ff5b49;
+  padding: 0.5em;
+  border-radius: 8px;
+  position: absolute; /* позиция меняется в зависимости от прокрута, отступ идет от viewport или от ближайшего relative родителя */
+  top: 2rem;
+  right: 2rem;
+  z-index: 10;
+}
+
+.plan-description {
+  color: #8b8d8d;
+}
+
+.plan-info {
+  background-color: white;
+  padding: 1rem;
+  border: 1.5px solid #466149;
+}

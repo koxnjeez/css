@@ -1,101 +1,123 @@
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Montserrat", sans-serif;
-  margin: 0;
-}
-
 #product-overview {
-  background: #ff1b68;
-  width: 100%;
-  height: 528px;
+  /* shorthand всех последующих настроек */
+  background:
+    linear-gradient(to top, #151410 0%, transparent),
+    url("images/foto-no-pôr-do-sol.jpg") 50% 35% / cover no-repeat border-box,
+    #ff1b68;
+  /* background-image: url("images/foto-no-pôr-do-sol.jpg"); */
+  /* background-color: #ff1b68; */
+  /* background-size: cover; */
+  /* background-repeat: no-repeat; */
+  /* background-origin: border-box; */ /* обозначает область, которая будет использоваться как background */
+  /* background-clip: border-box; */ /* обозначает область, после которой изображение обрежется */
+  /* background-attachment: scroll; */ /* используется в случаях когда нужно настроить, будет ли фон листаться с элементами или будет фиксированым */
+  /* background-position: 50% 35%; */ /* проценты считают не отступ от изначального положения, а к какой части изображения идет привязка */
+  /* если устанавливается одно значение, второе автоматом ставит центр */
+  /* background-position: 20px; отступ вправо по оси x, y в центр */
+  /* background-position: center; привязка к центру */
+  /* background-position: right 30% bottom 40px; привязка к правой части по горизонтали и отступ снизу */
+  width: 100vw;
+  height: 65vh;
   padding: 1rem;
+  position: relative;
 }
 
 .section-title {
   color: #2ddf5c;
+  text-align: center;
+}
+
+.key-features .section-title {
+  color: white;
 }
 
 #product-overview h1 {
   color: white;
   font-family: "Anton", sans-serif;
   margin: 0;
+  position: absolute;
+  left: 5%;
+  bottom: 5%;
+}
+
+.plans {
+  /* display: flex; */
+  /* justify-content: space-between; */
+  width: 95%;
+  margin: auto;
+  text-align: center;
+}
+
+.plan {
+  background-color: #a6edc0;
+  text-align: center;
+  vertical-align: middle;
+  display: inline-block;
+  width: 30%;
+  padding: 2rem;
+  margin: 1rem;
+  overflow: hidden; /* если содержимые child объекты выходят за пределы, они прячутся */
+  /* если родительский объект, это body, overflow: hidden нужно добавить как и в body, так и в child элемент */
+}
+
+.plan--highlighted {
+  background-color: #208f49;
+  color: white;
+  box-shadow: 2px 2px 10px #208f49;
+}
+
+.plan--annotation {
+  background-color: white;
+  color: #208f49;
+  padding: 0.5rem;
+  box-shadow: 2px 2px 5px white;
+  border-radius: 4px;
+}
+
+.plan--feature {
+  list-style: none;
+}
+
+.plan--features {
+  padding: 0;
+}
+
+.key-features {
+  background-color: #ff1b68;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+.key-feature-reasons {
+  display: flex;
+  padding: 0;
+  margin-top: 3rem;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+}
+
+.key-feature-reason {
+  width: 30%;
+}
+
+.key-feature-reason-description {
+  color: white;
+  font: inherit;
+  font-weight: bold;
+  text-align: center;
+}
+
+.key-feature-image {
+  background-color: #ffbad1;
+  height: 128px;
+  width: 128px;
+  border: 2px solid #999;
+  border-radius: 50%;
+  margin: auto;
+  padding: 20px;
 }
 
 /* h1 {
     font-family: sans-serif;
 } */
-
-.main-header {
-  width: 100%;
-  background-color: #2ddf5c;
-  padding: 0.6rem 1rem;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.logo-nav a {
-  color: #0e4f1f;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 20px;
-}
-
-.main-nav {
-  width: calc(100% - 48.1px);
-  display: flex;
-  justify-content: end;
-}
-
-.main-nav__items {
-  display: flex;
-  gap: 2.5rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-/* .main-nav__item {
-  display: inline-block;
-  display: block;
-  display: none;
-  visibility: hidden;
-} */
-
-.main-nav__item a {
-  color: #0e4f1f;
-  text-decoration: none;
-  padding-bottom: 3px;
-}
-
-/* Pseudo elements */
-/* .main-nav__item a::after/before {
-  content: " (Click)";
-  color: #c7ffd6;
-} */
-
-/* Pseudo classes */
-.main-nav__item a:hover,
-.main-nav__item a:active {
-  color: #fff;
-  border-bottom: 3px solid #fff;
-}
-
-.main-nav__item--cta a {
-  padding: 0.4rem;
-  background-color: #0f9131;
-  color: white;
-  font-weight: bold;
-  border-radius: 10px;
-}
-
-.main-nav__item--cta a:hover,
-.main-nav__item--cta a:active {
-  border: none;
-  color: #0f9131;
-  background-color: white;
-}
