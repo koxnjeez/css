@@ -1,3 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"); */
+
 * {
   box-sizing: border-box;
 }
@@ -5,8 +9,12 @@
 body {
   font-family: "Montserrat", sans-serif;
   margin: 0;
-  padding-top: 2.4em;
-  overflow-x: hidden;
+  padding-top: 3rem;
+  overflow-x: hidden; /* прячет скроллбары по своей оси x/y */
+}
+
+main {
+  min-height: calc(100vh - 3rem - 3rem - 3.3rem);
 }
 
 .backdrop {
@@ -27,18 +35,44 @@ body {
   background-color: #2ddf5c;
   padding: 0.6rem 1rem;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: start;
   z-index: 1;
 }
 
-.logo-nav {
-  display: inline-block;
+.toggle-button {
+  width: 3rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding-top: 0;
+  padding-bottom: 0;
   vertical-align: middle;
-  height: 1.5rem;
 }
 
-/* .logo-nav a {
+.toggle-button:focus {
+  outline: none;
+}
+
+.toggle-button__bar {
+  width: 100%;
+  height: 0.2rem;
+  background: black;
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.toggle-button__bar:last-of-type {
+  margin-bottom: 0;
+}
+
+.image_container {
+  display: inline-block;
+  vertical-align: middle;
+  height: 1.8rem;
+  margin: 0 0.5rem;
+}
+
+/* .image_container a {
   color: #0e4f1f;
   text-decoration: none;
   font-weight: bold;
@@ -47,22 +81,12 @@ body {
   display: inline-block;
 } */
 
-.logo-nav img {
+.image_container img {
   height: 100%;
 }
 
 .main-nav {
-  width: calc(100% - 32px);
-  display: flex;
-  justify-content: end;
-}
-
-.main-nav__items {
-  display: flex;
-  gap: 2.5rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
+  display: none;
 }
 
 /* .main-nav__item {
@@ -72,7 +96,8 @@ body {
   visibility: hidden;
 } */
 
-.main-nav__item a {
+.main-nav__item a,
+.mobile-nav__item a {
   color: #0e4f1f;
   text-decoration: none;
   padding: 0.2rem 0;
@@ -91,7 +116,8 @@ body {
   border-bottom: 3px solid #fff;
 }
 
-.main-nav__item--cta a {
+.main-nav__item--cta a,
+.mobile-nav__item--cta a {
   padding: 0.4rem;
   background-color: #0f9131;
   color: white;
@@ -100,10 +126,65 @@ body {
 }
 
 .main-nav__item--cta a:hover,
-.main-nav__item--cta a:active {
+.main-nav__item--cta a:active,
+.mobile-nav__item--cta a:hover,
+.mobile-nav__item--cta a:active {
   border: none;
   color: #0f9131;
   background-color: white;
+}
+
+@media (min-width: 40rem) {
+  .toggle-button {
+    display: none;
+  }
+
+  .image_container {
+    margin: 0;
+  }
+
+  .main-nav {
+    width: calc(100% - 1.8rem);
+    display: flex;
+    align-items: center;
+    justify-content: end;
+  }
+
+  .main-nav__items {
+    display: flex;
+    gap: 2.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+}
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  z-index: 101;
+  top: 0;
+  left: 0;
+  background: white;
+  width: 80%;
+  height: 100vh;
+}
+
+.mobile-nav__items {
+  width: 90%;
+  height: 100%;
+  list-style: none;
+  margin: 10% auto;
+  padding: 0;
+  text-align: center;
+}
+
+.mobile-nav__item {
+  margin: 1rem 0;
+}
+
+.mobile-nav__item a {
+  font-size: 1.5rem;
 }
 
 .button {
@@ -137,13 +218,12 @@ body {
 
 .footer-links {
   list-style: none;
-  margin: 0;
+  margin: 1rem 0;
   padding: 0;
 }
 
-.footer-link {
-  display: inline-block;
-  margin: 0 1rem;
+.footer-link:first-of-type {
+  margin-bottom: 0.5rem;
 }
 
 .footer-link a {
@@ -154,4 +234,23 @@ body {
 .footer-link a:hover,
 .footer-link a:active {
   color: #888;
+}
+
+@media (min-width: 40rem) {
+  .footer-links {
+    margin: 0;
+  }
+
+  .footer-link:first-of-type {
+    margin: 0;
+  }
+
+  .footer-link {
+    display: inline-block;
+    margin: 0 1rem;
+  }
+}
+
+.open {
+  display: block !important;
 }

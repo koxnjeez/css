@@ -1,3 +1,13 @@
+@font-face {
+  font-family: "Open Sans";
+  src: url("OpenSans-ExtraBold.ttf") format("truetype");
+  font-weight: 800; /* важно при добавлении нескольких вариаций шрифта для определения разницы, при одиночном не обязательно */
+}
+
+main {
+  min-height: calc(100vh - 3rem - 3.3rem);
+}
+
 #product-overview {
   /* shorthand всех последующих настроек */
   background:
@@ -17,44 +27,60 @@
   /* background-position: center; привязка к центру */
   /* background-position: right 30% bottom 40px; привязка к правой части по горизонтали и отступ снизу */
   width: 100vw;
-  height: 65vh;
+  height: 35vh;
   padding: 1rem;
   position: relative;
 }
 
-.section-title {
-  color: #2ddf5c;
-  text-align: center;
-}
-
-.key-features .section-title {
-  color: white;
-}
-
 #product-overview h1 {
   color: white;
+  font-size: 1.5rem;
   font-family: "Anton", sans-serif;
+  /* font: regular small-caps 700 1.5rem/1 "Anton", sans-serif; равноценный font shorthand */
+  /* конструкция font-style font-variant font-weight/line-height font-size font-family */
   margin: 0;
   position: absolute;
   left: 5%;
   bottom: 5%;
 }
 
-.plans {
-  /* display: flex; */
-  /* justify-content: space-between; */
-  width: 95%;
-  margin: auto;
+@media (min-width: 48.75rem) and (orientation: landscape) {
+  #product-overview {
+    height: 45vh;
+  }
+
+  #product-overview h1 {
+    font-size: 2rem;
+  }
+
+  .plans {
+    /* display: flex; */
+    /* justify-content: space-between; */
+    width: 95%;
+    margin: auto;
+    text-align: center;
+  }
+
+  .plan {
+    vertical-align: middle;
+    display: inline-block;
+    min-width: 20.5rem;
+    max-width: 31.25rem;
+    width: 30%;
+  }
+}
+
+.section-title {
+  font-family: "Open Sans", sans-serif;
+  color: #2ddf5c;
   text-align: center;
 }
 
 .plan {
   background-color: #a6edc0;
   text-align: center;
-  vertical-align: middle;
-  display: inline-block;
-  width: 30%;
-  padding: 2rem;
+  min-width: 20.5rem;
+  padding: 1rem;
   margin: 1rem;
   overflow: hidden; /* если содержимые child объекты выходят за пределы, они прячутся */
   /* если родительский объект, это body, overflow: hidden нужно добавить как и в body, так и в child элемент */
@@ -82,23 +108,33 @@
   padding: 0;
 }
 
+@media (min-width: 32rem) {
+  .key-feature-reasons {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
 .key-features {
   background-color: #ff1b68;
   padding: 1rem;
   margin-top: 2rem;
 }
 
+.key-features .section-title {
+  color: white;
+}
+
 .key-feature-reasons {
-  display: flex;
   padding: 0;
   margin-top: 3rem;
-  justify-content: space-around;
-  align-items: center;
   list-style: none;
 }
 
 .key-feature-reason {
   width: 30%;
+  margin: 0 auto;
+  min-width: 9.5rem;
 }
 
 .key-feature-reason-description {
@@ -113,11 +149,60 @@
   height: 128px;
   width: 128px;
   border: 2px solid #999;
-  border-radius: 50%;
+  border-radius: 50%; /* для идеального круга */
   margin: auto;
-  padding: 20px;
+  padding: 1.25rem;
 }
 
 /* h1 {
     font-family: sans-serif;
 } */
+
+.modal {
+  position: fixed;
+  display: none;
+  z-index: 200;
+  top: 20%;
+  left: 30%;
+  width: 40%;
+  background: white;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.modal__title {
+  text-align: center;
+  margin: 0 0 1rem 0;
+}
+
+.modal__actions {
+  text-align: center;
+}
+
+.modal__action {
+  border: 1px solid #0e4f1f;
+  background: #0e4f1f;
+  text-decoration: none;
+  color: white;
+  font: inherit;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.modal__action:hover,
+.modal__action:active {
+  background: #2ddf5c;
+  border-color: #2ddf5c;
+}
+
+.modal__action--negative {
+  background: red;
+  border-color: red;
+}
+
+.modal__action--negative:hover,
+.modal__action--negative:active {
+  background: #ff5454;
+  border-color: #ff5454;
+}

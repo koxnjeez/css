@@ -2,8 +2,8 @@
   background: url("../images/deseer.jpg") #ff1b68 center bottom / cover
     no-repeat border-box;
   filter: brightness(0.5);
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   position: fixed; /* позиция фиксирована, отступ идет от viewport */
   top: 0;
   z-index: -1; /* по стандарту равен 1 */
@@ -11,10 +11,11 @@
 
 .plan-box {
   position: relative; /* создает предка, к которому будет привязываться объект в позиции absolute, отступ идет от изначальной позиии элемента */
-  margin: 1rem 5rem;
+  margin: 1rem 5%;
   padding: 2rem;
   border: 5px solid #0e3c19;
   width: 80%;
+  max-width: 70rem;
   font-family: inherit;
   text-decoration: none;
 }
@@ -45,7 +46,7 @@
 }
 
 .clearer {
-  clear: both;
+  clear: both; /* сбрасывает позиционирование до стандартного (нивелирует float: right) */
 }
 
 .plan-title {
@@ -63,10 +64,17 @@
   background-color: #ff5b49;
   padding: 0.5em;
   border-radius: 8px;
-  position: absolute; /* позиция меняется в зависимости от прокрута, отступ идет от viewport или от ближайшего relative родителя */
-  top: 2rem;
-  right: 2rem;
+  position: static;
+  width: fit-content;
   z-index: 10;
+}
+
+@media (min-width: 40rem) {
+  .plan-badge {
+    position: absolute; /* позиция меняется в зависимости от прокрута, отступ идет от viewport или от ближайшего relative родителя */
+    top: 2rem;
+    right: 2rem;
+  }
 }
 
 .plan-description {
@@ -75,6 +83,11 @@
 
 .plan-info {
   background-color: white;
+  color: black;
   padding: 1rem;
   border: 1.5px solid #466149;
+  letter-spacing: 1px; /* расстояние отступа между буквами */
+  line-height: normal; /* вертикальный отсутп между строк (высота строки) */
+  /* text-decoration: line-through 1px #0e3c19; зачеркивание/почеркивание/надчеркивание */
+  /* text-shadow: 0px 2px 2px grey; эффект удваивания с помощью тени (можно не указывать степень блюра и цвет) */
 }
