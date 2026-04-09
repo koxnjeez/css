@@ -35,8 +35,13 @@ main {
   background-color: #2ddf5c;
   padding: 0.6rem 1rem;
   display: flex;
-  justify-content: start;
+  align-items: center;
   z-index: 1;
+}
+
+.logo-nav {
+  display: flex;
+  align-items: center;
 }
 
 .toggle-button {
@@ -46,7 +51,6 @@ main {
   cursor: pointer;
   padding-top: 0;
   padding-bottom: 0;
-  vertical-align: middle;
 }
 
 .toggle-button:focus {
@@ -66,9 +70,6 @@ main {
 }
 
 .image_container {
-  display: inline-block;
-  vertical-align: middle;
-  height: 1.8rem;
   margin: 0 0.5rem;
 }
 
@@ -82,7 +83,7 @@ main {
 } */
 
 .image_container img {
-  height: 100%;
+  height: 1.8rem;
 }
 
 .main-nav {
@@ -171,16 +172,19 @@ main {
 }
 
 .mobile-nav__items {
-  width: 90%;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
   list-style: none;
-  margin: 10% auto;
+  margin: 0;
   padding: 0;
-  text-align: center;
 }
 
 .mobile-nav__item {
-  margin: 1rem 0;
+  margin: 0.5rem 0;
 }
 
 .mobile-nav__item a {
@@ -213,10 +217,12 @@ main {
 .main-footer {
   background-color: black;
   padding: 1rem;
-  text-align: center;
 }
 
 .footer-links {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   list-style: none;
   margin: 1rem 0;
   padding: 0;
@@ -238,6 +244,8 @@ main {
 
 @media (min-width: 40rem) {
   .footer-links {
+    justify-content: center;
+    flex-direction: row;
     margin: 0;
   }
 
@@ -246,7 +254,6 @@ main {
   }
 
   .footer-link {
-    display: inline-block;
     margin: 0 1rem;
   }
 }
