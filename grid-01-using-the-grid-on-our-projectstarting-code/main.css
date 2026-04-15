@@ -1,0 +1,92 @@
+.container {
+  margin: 20px;
+  display: grid;
+  height: 350px;
+  /* justify-items: center; позиционирует каждый элемент относительно собственного блока по горизонтали */
+  /* align-items: center; позиционирует каждый элемент относительно собственного блока по вертикали */
+  /* justify-content: end; позиционирует цельный блок, если контент заполняет не 100% по горизонтали */
+  /* align-content: end; позиционирует цельный блок, если контент заполняет не 100% по вертикали */
+
+  /* grid-template-columns: 300px 3fr 10% 1fr; */
+  grid-template-columns: [hd-start ft-start] repeat(4, [col-start] 25% [col-end]) [hd-end ft-end];
+  /* при повторении строк/колонок можно задать стандартные имена линиям перед и после объекта и в дальнейшем приписывать номер после имени */
+  grid-template-rows:
+    /* имена линий указываются перед их значением (можно назначить несколько через пробел) */
+    /* на эти имена можно ссылаться при указывании начала и конца элемента */
+    [hd-start row-1-start] 5rem [hd-end row-1-end row-2-start] 200px
+    [ft-start row-2-end row-3-start] minmax(3rem, 6rem) [ft-end row-3-end];
+  /* minmax подстраивается под оставшееся место, стараясь растянуться по своему максимуму */
+  grid-template-areas: /* настройка шаблона размещения по странице с названиями */
+    "header header header header" "side side main main"
+    "footer footer footer footer";
+
+  column-gap: 0.4rem; /* расстояние между столбцами */
+  row-gap: 0.4rem; /* расстояние между рядками */
+}
+
+@media (max-width: 40rem) {
+  .container {
+    grid-template-rows: [hd-start row-1-start]
+      5rem [hd-end row-1-end row-2-start]
+      200px [row-2-end row-3-start]
+      100px [ft-start row-3-end row-4-start]
+      minmax(3rem, 6rem) [ft-end row-4-end];
+    grid-template-areas:
+      "header header header header"
+      ". main main main"
+      ". side side ."
+      "footer footer footer footer";
+  }
+}
+
+.el1 {
+  background: rgba(255, 154, 72, 0.5);
+  grid-area: hd;
+}
+
+.el2 {
+  background: rgba(255, 0, 0, 0.5);
+  /* grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: row-1-start; указание начальной строки, с помощью заготовленных имен */
+  /* grid-row-end: span 2; span делает шаг и показывает через сколько ячеек закончить подсчет */
+
+  /* grid-column: col-start 1 / col-end 2; */
+  grid-area: side;
+
+  align-content: center;
+  justify-self: end;
+}
+
+@media (max-width: 40rem) {
+  .el2 {
+    justify-self: stretch;
+  }
+}
+
+.el3 {
+  background: rgba(0, 128, 0, 0.5);
+  /* grid-column-start: 3;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 3; */
+
+  /* grid-column: 3 / 5; column shorthand */
+  /* grid-row: 1 / 3; row shorthand */
+
+  /* grid-area: 1 / 3 / 3 / 5; grid child element shorthand */
+  /* прописывается по схеме: row-start / col-start / row-end / col-end */
+
+  grid-area: main;
+}
+
+.el4 {
+  background: rgba(0, 4, 255, 0.5);
+  /* grid-column-start: 1;
+  grid-column-end: span 2;
+  grid-row-start: 2;
+  grid-row-end: span 1; */
+  /* элементы могут накладываться друг на друга, изменять их порядок можно через z-index */
+
+  grid-area: ft;
+}

@@ -42,13 +42,13 @@
     </header>
     <nav class="mobile-nav">
       <ul class="mobile-nav__items">
-        <li class="main-nav__item">
+        <li class="mobile-nav__item">
           <a href="../index.html">Plans</a>
         </li>
-        <li class="main-nav__item">
+        <li class="mobile-nav__item">
           <a href="../packages/index.html">Packages</a>
         </li>
-        <li class="main-nav__item">
+        <li class="mobile-nav__item">
           <a href="../customers/index.html">Customers</a>
         </li>
       </ul>
@@ -69,11 +69,13 @@
         <input type="email" id="email" />
         <label for="password">Password</label>
         <input type="password" id="password" />
-        <input type="checkbox" id="agree-terms" />
-        <label for="agree-terms"
-          >Agree to
-          <a href="#">Terms &amp; Conditions</a>
-        </label>
+        <div class="checkbox-container">
+          <input type="checkbox" id="agree-terms" />
+          <label for="agree-terms"
+            >Agree to
+            <a href="#">Terms &amp; Conditions</a>
+          </label>
+        </div>
         <button type="submit" class="button">Sign Up</button>
       </form>
     </main>
