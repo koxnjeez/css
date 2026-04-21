@@ -1,0 +1,10 @@
+// $variable: black;
+$colors: (
+  main: #521751,
+  third: #fa923f,
+); /* в переменные/map сохраняются любые часто используемые значения */
+$border-default: 0.05rem solid map-get($colors, main);
+$indents: (
+  small: 0.2rem,
+  big: 2rem,
+);

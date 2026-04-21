@@ -1,0 +1,34 @@
+.container {
+    position: relative;
+    margin: 150px auto;
+    border: 1px solid black;
+    width: 200px;
+    height: 200px;
+    perspective: 600px; /* перспектива, с насколько близкого расстояния мы смотрим на объект */
+    perspective-origin: top; /* указания из какого направления ты смотришь на фигуру представляя внутреннюю часть куба */
+    transform: rotateY(100deg);
+    transform-style: preserve-3d; /* стиль основного блока, будет ли видно его содержимые видоизмененные элементы при развороте целого контейнера */
+}
+
+.box1 {
+    position: absolute;
+    background: red;
+    width: 100%;
+    height: 100%;
+    transform: rotateX(0deg) rotateY(45deg) rotateZ(0deg); /* обертывание chlid элемента вокруг осей */
+    color: white;
+    font-family: sans-serif;
+    text-align: center;
+    /* backface-visibility: hidden; скрывает элемент, если его развернули обратной стороной */
+}
+
+.box2 {
+    position: absolute;
+    background: blue;
+    width: 100%;
+    height: 100%;
+    transform: translateZ(-10rem);
+    color: white;
+    font-family: sans-serif;
+    text-align: center;
+}

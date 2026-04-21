@@ -1,0 +1,108 @@
+@import "variables.scss";
+@import "typography.scss";
+
+@mixin flexbox-setup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin media-min-width($width) {
+  @media (min-width: $width) {
+    @content;
+  }
+}
+
+html {
+  font-size: 94.75%;
+
+  @include media-min-width(40rem) {
+    font-size: 125%;
+  }
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+.container {
+  @include flexbox-setup();
+  flex: {
+    direction: column;
+    wrap: nowrap;
+  }
+  align-items: center;
+  padding: map-get($indents, big) * 1.5 0; /* арифметика со значениями работает */
+  box-sizing: border-box;
+}
+
+.sass-section {
+  border: $border-default;
+  background: lighten(
+    map-get($colors, main),
+    75%
+  ); /* осветление цвета на 75% */
+  text-align: center;
+  width: 90%;
+  box-sizing: border-box;
+
+  @include media-min-width(40rem) {
+    width: 30rem;
+  }
+}
+
+.sass-introduction {
+  @extend .sass-section;
+  padding: map-get($indents, big);
+  box-shadow: map-get($indents, small) map-get($indents, small)
+    map-get($indents, small) / 2 #ccc;
+
+  p {
+    margin: 0;
+  }
+}
+
+.sass-details {
+  @extend .sass-section;
+  padding: map-get($indents, big) / 2;
+  margin: map-get($indents, big) 0;
+}
+
+.section-header {
+  border-bottom: $border-default;
+
+  h1 {
+    margin: 0 0 1rem 0;
+  }
+}
+
+.documentation-links {
+  list-style: none;
+  margin: 1rem 0 0 0;
+  padding: 0;
+  @include flexbox-setup();
+  flex-direction: column;
+
+  li {
+    /* особенность scss, автотрансформация в .documentation-links li */
+    margin: 0.2rem 0;
+    background: white;
+  }
+
+  .documentation-link {
+    text-decoration: none;
+    color: map-get($colors, main); /* получение объекта из map списка */
+    display: block;
+    padding: 0.2rem;
+    border: $border-default;
+
+    &:hover, /* & присоединяет частицу к родительскому элементу, а не переформировывает его отдельно через пробел */
+    &:active {
+      color: white;
+      background: map-get($colors, third);
+      border-color: map-get($colors, third);
+    }
+  }
+}

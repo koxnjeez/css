@@ -1,3 +1,8 @@
+main {
+  perspective: 1500px;
+  perspective-origin: top left;
+}
+
 .background {
   background: url("../images/deseer.jpg") #ff1b68 center bottom / cover
     no-repeat border-box;
@@ -18,11 +23,13 @@
   max-width: 70rem;
   font-family: inherit;
   text-decoration: none;
+  overflow: hidden;
 }
 
 .plan-box:hover,
 .plan-box:active {
   border: 5px solid #ff5b49;
+  animation: hold_package 0.5s 0.2s ease-out forwards;
 }
 
 .plan-link {
@@ -72,8 +79,11 @@
 @media (min-width: 40rem) {
   .plan-badge {
     position: absolute; /* позиция меняется в зависимости от прокрута, отступ идет от viewport или от ближайшего relative родителя */
-    top: 2rem;
-    right: 2rem;
+    top: 1.5rem;
+    right: 3.5rem;
+    padding: 0.5em 4em;
+    transform: rotate(25deg) translate(6.5rem, -8.5rem); /* translateX будет сдвигать элемент по диагонали изза разворота на 10* */
+    transform-origin: left top; /* изменение точкxи, от куда будет идти трансформация объекта, для обозначения можно юзать числовые и процентные значения */
   }
 }
 
@@ -90,4 +100,16 @@
   line-height: normal; /* вертикальный отсутп между строк (высота строки) */
   /* text-decoration: line-through 1px #0e3c19; зачеркивание/почеркивание/надчеркивание */
   /* text-shadow: 0px 2px 2px grey; эффект удваивания с помощью тени (можно не указывать степень блюра и цвет) */
+}
+
+@keyframes hold_package {
+  0% {
+    transform: translateZ(0);
+  }
+  50% {
+    transform: translateZ(2rem);
+  }
+  100% {
+    transform: translateZ(1rem);
+  }
 }

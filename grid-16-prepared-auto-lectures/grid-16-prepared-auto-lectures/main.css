@@ -1,0 +1,28 @@
+.container {
+    margin: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 10rem); /* создает максимальное количество столбцов, которые вмещаются */
+    /* grid-template-columns: repeat(auto-fit, 10rem); аналог autofill, который равномерно распределяет имеющиеся блоки, если не удается заполнить всю линию */
+    grid-auto-rows: minmax(7rem, auto); /* смена значения автоматической высоты рядков */
+    /* grid-auto-flow: column; вместо того чтобы новые элементы размещать в новом рядке, размещает каждый новый в столбцах */
+
+    /* grid-template-columns: repeat(3, 10rem);
+    grid-auto-flow: row dense; dense позволяет заполнить пустые места, если последующий блок не влезает в строку/столбец */
+
+    justify-content: center;
+    grid-gap: 1.5rem;
+}
+
+.quote {
+  border: 1px solid #fa923f;
+  background: #ffbd87;
+  font-family: sans-serif;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.quote--featured {
+  border: #ff4213;
+  background: #ff9f87;
+  grid-column: span 2;
+}
